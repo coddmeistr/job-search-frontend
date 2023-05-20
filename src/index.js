@@ -7,12 +7,13 @@ import store from "./redux/redux-store"
 import { Provider } from "react-redux";
 import { MantineProvider } from '@mantine/core';
 import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <BrowserRouter>
+    <BrowserRouter basename='/deploy'>
       <Provider store={store}>
         <MantineProvider withGlobalStyles withNormalizeCSS>
           <App />
