@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.76f5e66c.css",
+    "main.js": "/static/js/main.36d13e5e.js",
+    "static/js/787.dab3168d.chunk.js": "/static/js/787.dab3168d.chunk.js",
+    "static/media/loclogo.png": "/static/media/loclogo.4a5a95ff638593818d3f.png",
+    "index.html": "/index.html",
+    "main.76f5e66c.css.map": "/static/css/main.76f5e66c.css.map",
+    "main.36d13e5e.js.map": "/static/js/main.36d13e5e.js.map",
+    "787.dab3168d.chunk.js.map": "/static/js/787.dab3168d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.76f5e66c.css",
+    "static/js/main.36d13e5e.js"
+  ]
+}
