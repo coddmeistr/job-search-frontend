@@ -1,0 +1,54 @@
+.container{
+    background-color: white;
+    border-radius: 15px;
+}
+
+.title{
+   text-align: left;
+   padding-left: 25px;
+   padding-top: 15px;
+   font-size: 20px;
+   color: #5E96FC;
+   font-weight: 700;
+   cursor: pointer;
+}
+.title:hover{
+    text-decoration: underline;
+ }
+
+.favStar{
+    float: right;
+    position: relative;
+    top: -100px;
+    right: 20px;
+    font-size: 35px;
+    cursor: pointer;
+    color: #5E96FC
+}
+
+.town{
+    text-align: left;
+    padding-left: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.town img{
+    width: 15px;
+    height: 15px;
+}
+
+.secRow{
+    text-align: left;
+    padding-left: 25px;
+    padding-top: 15px;
+}
+
+.worktype{
+
+
+}
+
+.salary{
+    font-weight: 700;
+}

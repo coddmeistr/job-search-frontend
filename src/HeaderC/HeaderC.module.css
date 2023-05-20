@@ -1,0 +1,35 @@
+.linkItem{
+   text-decoration: none;
+   margin-right: 50px;
+   color: black;
+}
+
+.linkContainer{
+    position: relative;
+   text-align: center;
+   top: -22px;
+}
+
+.linkItem:hover {
+    animation: colorCh 0.3s forwards;
+  }
+  
+  @keyframes colorCh {
+    from {
+      color: black;
+    }
+    to {
+      color: #5E96FC;
+    }
+  }
+  
+  .logo img{
+    width: 50px;
+    height: 50px;
+  }
+
+  .logo{
+    position: relative;
+    left: -800px;
+    top: 13px;
+  }

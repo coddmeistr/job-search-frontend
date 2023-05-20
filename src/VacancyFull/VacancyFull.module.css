@@ -1,0 +1,67 @@
+.container{
+    margin-left: 500px;
+    margin-right: 500px;
+}
+
+.containerHeader{
+   background-color: white;
+   border-radius: 15px;
+}
+
+.containerBody{
+    background-color: white;
+    border-radius: 15px;
+    margin-top: 30px;
+    padding: 20px;
+    text-align: left;
+}
+
+.containerBody p{
+    font-weight: 700px;
+}
+
+
+.title{
+   text-align: left;
+   padding-left: 25px;
+   padding-top: 15px;
+   font-size: 20px;
+   color: black;
+   font-weight: 700;
+}
+
+.favStar{
+    float: right;
+    position: relative;
+    top: -100px;
+    right: 20px;
+    font-size: 35px;
+}
+
+.town{
+    text-align: left;
+    padding-left: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.town img{
+    width: 15px;
+    height: 15px;
+}
+
+.secRow{
+    text-align: left;
+    padding-left: 25px;
+    padding-top: 15px;
+}
+
+
+.salary{
+    font-weight: 700;
+}
+
+.preloader{
+    position: relative;
+    top: -800px;
+}

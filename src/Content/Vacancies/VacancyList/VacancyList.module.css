@@ -1,0 +1,12 @@
+.el{
+    margin-bottom: 25px;
+}
+
+.pagination{
+    margin-left: 25%;
+}
+
+.preloader{
+    position: relative;
+    top: -2000px;
+}

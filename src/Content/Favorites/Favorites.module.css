@@ -1,0 +1,19 @@
+.container{
+    margin-left: 500px;
+    margin-right: 500px;
+}
+
+.el{
+    margin-top: 30px;
+}
+
+.preloader{
+    position: absolute;
+    left: 50%;
+    top: -100px;
+}
+
+.pagination{
+    margin-top: 20px;
+    padding-left: 100px;
+}

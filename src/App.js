@@ -1,24 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import HeaderC from './HeaderC/HeaderC.jsx';
+import Content from './Content/Content';
+import { useEffect } from 'react';
+import { authAPI } from './API';
+import { fetchAllVacancies } from './redux/vacanciesReducer';
+import { useDispatch } from 'react-redux';
+import { getAuthData } from './redux/authReducer';
 
 function App() {
+  const dispatch = useDispatch()
+
+  async function setLogin(){
+      let response = await dispatch(getAuthData())
+      let authData = response.payload.data
+
+      // Просрочен ли токен
+      if (Date.now()*1000-authData.ttl){
+          
+      }
+
+      localStorage.setItem("token", JSON.stringify(authData))
+  }
+
+  useEffect(() => {
+      setLogin()
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <HeaderC />
+        <Content />
+      </div>
   );
 }
 
