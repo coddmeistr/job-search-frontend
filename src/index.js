@@ -13,13 +13,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <BrowserRouter basename='/deploy'>
+    <HashRouter>
       <Provider store={store}>
         <MantineProvider withGlobalStyles withNormalizeCSS>
           <App />
         </MantineProvider>
       </Provider>
-    </BrowserRouter>
+    </HashRouter>
 );
 
 window.store = store;
