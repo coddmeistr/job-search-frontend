@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/deploy/static/css/main.76f5e66c.css",
-    "main.js": "/deploy/static/js/main.3fe6cdff.js",
+    "main.css": "/deploy/static/css/main.8ac35695.css",
+    "main.js": "/deploy/static/js/main.d23bd650.js",
     "static/js/787.dab3168d.chunk.js": "/deploy/static/js/787.dab3168d.chunk.js",
-    "static/media/loclogo.png": "/deploy/static/media/loclogo.4a5a95ff638593818d3f.png",
     "index.html": "/deploy/index.html",
-    "main.76f5e66c.css.map": "/deploy/static/css/main.76f5e66c.css.map",
-    "main.3fe6cdff.js.map": "/deploy/static/js/main.3fe6cdff.js.map",
+    "main.8ac35695.css.map": "/deploy/static/css/main.8ac35695.css.map",
+    "main.d23bd650.js.map": "/deploy/static/js/main.d23bd650.js.map",
     "787.dab3168d.chunk.js.map": "/deploy/static/js/787.dab3168d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.76f5e66c.css",
-    "static/js/main.3fe6cdff.js"
+    "static/css/main.8ac35695.css",
+    "static/js/main.d23bd650.js"
   ]
 }
