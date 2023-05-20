@@ -1,7 +1,14 @@
-.linkItem{
-   text-decoration: none;
-   margin-right: 50px;
-   color: black;
+
+.link{
+  text-decoration: none;
+  margin-right: 50px;
+  color: black;
+}
+
+.linkActive{
+  text-decoration: none;
+  color: #5E96FC;
+  margin-right: 50px;
 }
 
 .linkContainer{
@@ -10,7 +17,7 @@
    top: -22px;
 }
 
-.linkItem:hover {
+.link:hover {
     animation: colorCh 0.3s forwards;
   }
   

@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { fetchVacancies, setFavList, setFetchingVacs } from "../../../redux/vacanciesReducer";
 import Pagination from 'react-bootstrap/Pagination';
 import Preloader from "../../../Preloader/Preloader";
+import { setPage } from "../../../redux/vacanciesReducer";
 
 
 
@@ -66,6 +67,8 @@ function VacancyList(props) {
         } else {
             favlist = JSON.parse(favlistStr)
         }
+
+        dispatch(setPage(1))
         dispatch(setFavList(favlist))
         dispatch(fetchVacancies({ keyword: props.usedKeyword, from: props.from, to: props.to, cat: props.cat, page: page }))
         dispatch(setFetchingVacs(true))

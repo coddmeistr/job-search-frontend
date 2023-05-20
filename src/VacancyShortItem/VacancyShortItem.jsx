@@ -32,7 +32,7 @@ function VacancyShortItem(props) {
                 </span>
             </div>
             <div className={s.town}>
-                <span><img src="metroloc.png" alt="metrologo"></img></span>
+                <span><img src="" alt="metrologo"></img></span>
                 <span>{props.town}</span>
             </div>
             <div className={s.favStar} onClick={props.onFavClick}>

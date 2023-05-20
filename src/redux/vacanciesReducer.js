@@ -50,7 +50,7 @@ export const vacanciesReducer = createSlice({
     reducers: {
         setVacancies: (state, action) => {
             state.vacancies = action.payload.objects
-            state.totalPages = Math.floor(action.payload.total / 20)
+            state.totalPages = Math.ceil(action.payload.total / 20)
         },
         setCatalogues: (state, action) => {
             state.catalogues = action.payload

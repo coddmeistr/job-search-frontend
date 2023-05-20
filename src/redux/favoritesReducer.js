@@ -29,7 +29,7 @@ export const favoritesReducer = createSlice({
     reducers: {
         setFavVacancies: (state, action) => {
             state.vacancies = action.payload.objects
-            state.totalPages = Math.floor(action.payload.total / 5)
+            state.totalPages = Math.ceil(action.payload.total / 5)
         },
         setPage: (state, action) => {
             state.page = action.payload

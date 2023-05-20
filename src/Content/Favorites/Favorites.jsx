@@ -19,10 +19,17 @@ function Favorites(props) {
         return arr.indexOf(elem) !== -1;
     }
 
+    // selectors
     const vacancies = useSelector(state => state.favorites.vacancies)
     const favlist = useSelector(state => state.vacancies.favlist)
     const vacFiltered = vacancies.filter(el => contains(favlist, el.id))
     const isFetching = useSelector(state => state.favorites.isFetching)
+    const pages = useSelector(state => state.favorites.totalPages)
+    const page = useSelector(state => state.favorites.page)
+
+    if (vacFiltered.length === 0 && pages>1){
+        refetchFavs()
+    }
 
     async function onPageClick(page) {
         dispatch(setFetchingFavs(true))
@@ -30,10 +37,14 @@ function Favorites(props) {
         dispatch(setPage(page))
     }
 
+    async function refetchFavs(){
+        dispatch(setPage(1))
+        dispatch(setFetchingFavs(true))
+        dispatch(fetchVacanciesById({ ids: favlist, page: 1 }))
+    }
+
     // pagination
     const paginationPages = 5
-    const pages = useSelector(state => state.favorites.totalPages)
-    const page = useSelector(state => state.favorites.page)
     let paginagionJsx = []
     const offset = Math.floor(paginationPages / 2)
     let left = page - offset
@@ -42,12 +53,12 @@ function Favorites(props) {
         left = 1
         right = left + Math.min(paginationPages, pages)
     } else if (page + offset > pages) {
-            right = pages + 1
-            left = right - Math.min(paginationPages, pages)
-        }
-        else{
-            right+=1
-        }
+        right = pages + 1
+        left = right - Math.min(paginationPages, pages)
+    }
+    else {
+        right += 1
+    }
 
     for (let i = left; i < right; i++) {
         paginagionJsx.push(
@@ -56,7 +67,8 @@ function Favorites(props) {
     }
 
 
-    function handleFavClick(id) {
+    async function handleFavClick(id) {
+        // manage favlist storage
         let favlistStr = localStorage.getItem("favlist")
         let favlist
         if (favlistStr === undefined || favlistStr === null || favlistStr === "") {
@@ -69,8 +81,8 @@ function Favorites(props) {
         } else {
             favlist.push(id)
         }
-        dispatch(setFavList(favlist))
         localStorage.setItem("favlist", JSON.stringify(favlist))
+        dispatch(setFavList(favlist))
     }
 
     useEffect(() => {
@@ -81,9 +93,9 @@ function Favorites(props) {
         } else {
             favlist = JSON.parse(favlistStr)
         }
-        dispatch(setFetchingFavs(true))
+        
         dispatch(setFavList(favlist))
-        dispatch(fetchVacanciesById({ ids: favlist, page: 1 }))
+        refetchFavs()
     }, [])
 
     return (
@@ -91,13 +103,15 @@ function Favorites(props) {
             <div style={{ filter: isFetching ? "blur(3px)" : "blur(0px)" }}>
                 {vacFiltered.map((item) => <div className={s.el}><VacancyShortItem favlist={favlist} onFavClick={() => handleFavClick(item.id)} id={item.id} name={item.profession} salary_from={item.payment_from} salary_to={item.payment_to} currency={item.currency} town={item.town.title} worktype={item.type_of_work.title} /></div>)}
                 {vacFiltered.length === 0 && !isFetching ? <div>У вас нет ничего в избранном.</div> : <></>}
-                {pages > 1 ? <Pagination className={s.pagination}>
-                    <Pagination.First onClick={() => onPageClick(1)} />
-                    <Pagination.Prev onClick={() => onPageClick(page - 1)} />
-                    {paginagionJsx}
-                    <Pagination.Next onClick={() => onPageClick(page + 1)} />
-                    <Pagination.Last onClick={() => onPageClick(pages)} />
-                </Pagination> : <></>}
+                <div className={s.pagination}>
+                    {pages > 1 ? <Pagination>
+                        <Pagination.First onClick={() => onPageClick(1)} />
+                        <Pagination.Prev onClick={() => onPageClick(page - 1)} />
+                        {paginagionJsx}
+                        <Pagination.Next onClick={() => onPageClick(page + 1)} />
+                        <Pagination.Last onClick={() => onPageClick(pages)} />
+                    </Pagination> : <></>}
+                </div>
             </div>
             <div className={s.preloader} style={{ display: isFetching ? `block` : `none` }}><Preloader /></div>
         </div>
