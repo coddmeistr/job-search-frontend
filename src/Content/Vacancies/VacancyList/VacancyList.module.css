@@ -14,10 +14,24 @@
 .vacanciesBlock{
    display: flex;
    flex-direction: column;
+   
 }
 
 .preloader{
-    top: 1%;
-    right: 39%;
+    width: 100px;
+    height: 100px;
+    top: 45%;
+    right: 36%;
     position: absolute;
 }
+
+@media screen and (max-width : 800px) {
+    .preloader{
+        width: 100px;
+        height: 100px;
+        top: 100%;
+        right: 42%;
+        position: absolute;
+    }
+    
+  }

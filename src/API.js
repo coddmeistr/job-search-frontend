@@ -1,13 +1,14 @@
 import axios from "axios";
 
 axios.defaults.withCredentials = true
-
+// main url https://startup-summer-2023-proxy.onrender.com/
+// sec proxy http://startup-summer-proxy-production.up.railway.app/
 const instance = axios.create({
     withCredentials: false,
-    baseURL: "https://startup-summer-2023-proxy.onrender.com/",
+    baseURL: "http://startup-summer-proxy-production.up.railway.app/",
     headers: {
-        "x-secret-key": "GEU4nvd3rej*jeh.eqp",
-        "X-Api-App-Id": "v3.r.137558760.35c8c91301d7c09de6c85b254a4b21facaf9c1b9.b63650643d1a8a43609be5548ef8e41688ee42cf",
+        "x-secret-key": process.env.REACT_APP_API_SECRET_KEY,
+        "X-Api-App-Id": process.env.REACT_APP_SECRET_KEY,
     }
 })
 
@@ -57,5 +58,9 @@ export const authAPI = {
     login: () => {
         return instance.get(`2.0/oauth2/password?login=sergei.stralenia@gmail.com&password=paralect123&client_id=2356&client_secret=v3.r.137440105.ffdbab114f92b821eac4e21f485343924a773131.06c3bdbb8446aeb91c35b80c42ff69eb9c457948&hr=0`)
     },
+
+    refreshToken: (token) => {
+        return instance.get(`2.0/oauth2/refresh_token/?refresh_token=${token}&client_id=${process.env.REACT_APP_API_APP_ID}&client_secret=${process.env.REACT_APP_SECRET_KEY}`)
+    }
 
 }

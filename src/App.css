@@ -38,3 +38,20 @@
     transform: rotate(360deg);
   }
 }
+
+.preloader{
+  align-self: center;
+  text-align: center;
+  position: relative;;
+  width: 100px;
+  height: 100px;
+}
+
+.authText{
+  align-self: center;
+}
+
+.authMsg{
+  display: flex;
+  flex-direction: column;
+}

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useParams } from "react-router-dom";
 import s from "./VacancyFull.module.css"
 import { useEffect } from "react";

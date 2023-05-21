@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import s from "./Filter.module.css"
 import { Select, TextInput, Button } from "@mantine/core";
 import { useEffect } from "react";

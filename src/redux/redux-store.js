@@ -2,7 +2,6 @@ import {configureStore} from "@reduxjs/toolkit";
 import authReducer from "./authReducer";
 import vacanciesReducer from "./vacanciesReducer";
 import vacancyReducer from "./vacancyReducer";
-import Favorites from './../Content/Favorites/Favorites';
 import favoritesReducer from "./favoritesReducer";
 
 

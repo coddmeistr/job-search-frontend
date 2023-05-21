@@ -12,11 +12,20 @@
 }
 
 .preloader{
+    width: 100px;
+    height: 100px;
     position: absolute;
-    left: 50%;
-    top: -100px;
+    left: 46%;
+    top: 30%;
 }
 
 .pagination{
     align-self: center;
 }
+
+@media screen and (max-width : 1000px) {
+    .container{
+        margin: 0 5%;
+    }
+    
+  }

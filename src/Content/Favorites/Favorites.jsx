@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import VacancyShortItem from "../../VacancyShortItem/VacancyShortItem";
 import s from "./Favorites.module.css"
 import { useSelector } from "react-redux";

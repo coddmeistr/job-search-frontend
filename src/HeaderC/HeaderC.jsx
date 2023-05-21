@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import s from "./HeaderC.module.css"
 import { Header } from "@mantine/core";
 import { NavLink } from "react-router-dom";
