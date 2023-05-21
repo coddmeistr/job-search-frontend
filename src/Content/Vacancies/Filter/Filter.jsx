@@ -44,6 +44,14 @@ function Filter(props) {
             <div className={s.title}>
                 <span className={s.titleText}>Фильтры</span>
             </div>
+            <div className={s.resetFilters} onClick={() => {
+                setFrom("")
+                setTo("")
+                setCat("")
+                props.handleResetFilters()
+            }}>
+                Сбросить фильтры ×
+            </div>
             <div className={s.catalogueBlock}>
                 <div className={s.cataloguetItle}>Отрасль</div>
                 <Select
@@ -63,14 +71,6 @@ function Filter(props) {
                 <div className={s.salaryTitle}>Оклад</div>
                 <TextInput data-elem="salary-from-input" onChange={handleChangeFrom} value={textFrom} placeholder="От" className={s.salaryInput} />
                 <TextInput data-elem="salary-to-input" onChange={handleChangeTo} value={textTo} placeholder="До" className={s.salaryInput} />
-            </div>
-            <div className={s.resetFilters} onClick={() => {
-                setFrom("")
-                setTo("")
-                setCat("")
-                props.handleResetFilters()
-            }}>
-                Сбросить фильтры ×
             </div>
             <Button
                 data-elem="search-button"

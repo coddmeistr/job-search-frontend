@@ -47,12 +47,12 @@
 
 .resetFilters {
     float: right;
-    position: absolute;
+    position: relative;
     font-size: 0.7em;
     color: lightgrey;
     cursor: pointer;
     left: 27%;
-    bottom: 76%;
+    top: -20px;
 }
 
 .catalogueInput {
@@ -74,12 +74,14 @@
     margin-bottom: 4%;
 }
 
-@media screen and (max-width : 1400px) {
+@media screen and (max-width : 1000px) and (min-width: 801px) {
     .resetFilters {
-        margin-top: 5%;
-        position: static;
-        font-size: 0.7em;
+        float: right;
+        position: relative;
+        font-size: 0.5em;
         color: lightgrey;
         cursor: pointer;
+        left: 27%;
+        top: -20px;
     }
 }
