@@ -17,10 +17,11 @@ function Vacancies() {
 
     // functions
     async function onPageClick(page) {
+        document.getElementById("header").scrollIntoView()
         dispatch(setFetchingVacs(true))
         await dispatch(fetchVacancies({ keyword: usedKeyword, from: from, to: to, cat: cat, page: page, itemsOnPage: ITEMS_ON_PAGE }))
         dispatch(setPage(page))
-    }
+        }
 
     function onSearchClick(keyword) {
         dispatch(setPage(1))
@@ -30,12 +31,14 @@ function Vacancies() {
     }
 
     function onFilterClick(from, to, cat) {
+        dispatch(setPage(1))
         dispatch(setFilters({ from, to, cat }))
         dispatch(setFetchingVacs(true))
         dispatch(fetchVacancies({ keyword: usedKeyword, from: from, to: to, cat: cat, page: 1, itemsOnPage: ITEMS_ON_PAGE }))
     }
 
     function onFilterReset() {
+        dispatch(setPage(1))
         dispatch(setFilters({ from: 0, to: 0, cat: null }))
         dispatch(setFetchingVacs(true))
         dispatch(fetchVacancies({ keyword: usedKeyword, from: 0, to: 0, cat: null, page: 1, itemsOnPage: ITEMS_ON_PAGE }))

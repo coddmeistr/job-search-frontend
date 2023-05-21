@@ -27,6 +27,7 @@ function Favorites(props) {
 
     // functions
     async function onPageClick(page) {
+        document.getElementById("header").scrollIntoView()
         dispatch(setFetchingFavs(true))
         await dispatch(fetchVacanciesById({ ids: favlist, page: page, itemsOnPage: ITEMS_ON_PAGE }))
         dispatch(setPage(page))
@@ -51,10 +52,10 @@ function Favorites(props) {
         dispatch(setFavList(favlist))
     }
 
-    function refetchFavs(ids) {
-        dispatch(setPage(1))
+    function refetchFavs(ids, page) {
+        dispatch(setPage(page))
         dispatch(setFetchingFavs(true))
-        dispatch(fetchVacanciesById({ ids, page: 1, itemsOnPage: ITEMS_ON_PAGE }))
+        dispatch(fetchVacanciesById({ ids, page: page, itemsOnPage: ITEMS_ON_PAGE }))
     }
 
     // pagination
@@ -90,12 +91,12 @@ function Favorites(props) {
         }
 
         dispatch(setFavList(favlist))
-        refetchFavs(favlist)
+        refetchFavs(favlist, page)
     }, [])
 
     // If no items left on page, theb refetch
     if (vacFiltered.length === 0 && pages > 1 && !isFetching) {
-        refetchFavs(favlist)
+        refetchFavs(favlist, 1)
     }
 
     return (

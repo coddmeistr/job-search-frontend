@@ -24,7 +24,8 @@
     right: 20px;
     font-size: 35px;
     cursor: pointer;
-    color: #5E96FC
+    color: #5E96FC;
+    user-select: none;
 }
 
 .town {
@@ -60,7 +61,8 @@
         right: 5%;
         font-size: 35px;
         cursor: pointer;
-        color: #5E96FC
+        color: #5E96FC;
+        user-select: none;
     }
 
 }

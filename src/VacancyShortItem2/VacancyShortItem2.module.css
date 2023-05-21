@@ -19,6 +19,7 @@
     right: 20px;
     font-size: 35px;
     cursor: pointer;
+    user-select: none;
 }
 
 .town {
@@ -54,7 +55,8 @@
         right: 5%;
         font-size: 35px;
         cursor: pointer;
-        color: black
+        color: black;
+        user-select: none;
     }
 
 }
