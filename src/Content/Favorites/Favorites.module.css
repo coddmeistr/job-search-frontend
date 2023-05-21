@@ -1,17 +1,17 @@
-.container{
+.container {
     margin: 0 25%;
 }
 
-.el{
-   display: initial;
+.el {
+    display: initial;
 }
 
-.favBlock{
+.favBlock {
     display: flex;
-   flex-direction: column;
+    flex-direction: column;
 }
 
-.preloader{
+.preloader {
     width: 100px;
     height: 100px;
     position: absolute;
@@ -19,13 +19,12 @@
     top: 30%;
 }
 
-.pagination{
+.pagination {
     align-self: center;
 }
 
 @media screen and (max-width : 1000px) {
-    .container{
+    .container {
         margin: 0 5%;
     }
-    
-  }
+}

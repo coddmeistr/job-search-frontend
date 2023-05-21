@@ -1,23 +1,23 @@
-.flexContainer{
+.flexContainer {
     display: flex;
     flex-direction: column-reverse;
 }
 
-.el{
+.el {
     display: initial;
 }
 
-.pagination{
+.pagination {
     align-self: center;
 }
 
-.vacanciesBlock{
-   display: flex;
-   flex-direction: column;
-   
+.vacanciesBlock {
+    display: flex;
+    flex-direction: column;
+
 }
 
-.preloader{
+.preloader {
     width: 100px;
     height: 100px;
     top: 45%;
@@ -26,12 +26,12 @@
 }
 
 @media screen and (max-width : 800px) {
-    .preloader{
+    .preloader {
         width: 100px;
         height: 100px;
         top: 100%;
         right: 42%;
         position: absolute;
     }
-    
-  }
+
+}

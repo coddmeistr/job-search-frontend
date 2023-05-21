@@ -5,7 +5,7 @@ axios.defaults.withCredentials = true
 // sec proxy http://startup-summer-proxy-production.up.railway.app/
 const instance = axios.create({
     withCredentials: false,
-    baseURL: "http://startup-summer-proxy-production.up.railway.app/",
+    baseURL: "https://startup-summer-2023-proxy.onrender.com/",
     headers: {
         "x-secret-key": process.env.REACT_APP_API_SECRET_KEY,
         "X-Api-App-Id": process.env.REACT_APP_SECRET_KEY,

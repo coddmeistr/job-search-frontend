@@ -1,4 +1,4 @@
-.container{
+.container {
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -6,7 +6,7 @@
     align-items: center;
 }
 
-.title{
+.title {
     width: 85%;
     text-align: left;
     margin-top: 5%;
@@ -15,11 +15,11 @@
     font-weight: 700;
 }
 
-.titletText{
+.titletText {
     text-align: left;
 }
 
-.catalogueBlock{
+.catalogueBlock {
     width: 85%;
     text-align: left;
     padding-top: 1%;
@@ -28,15 +28,15 @@
     font-weight: 700;
 }
 
-.catalogueTitle{
+.catalogueTitle {
     margin-bottom: 10px;
 }
 
-.salaryTitle{
+.salaryTitle {
     margin-bottom: 1%;
 }
 
-.salaryBlock{
+.salaryBlock {
     width: 85%;
     text-align: left;
     padding-top: 1%;
@@ -45,7 +45,7 @@
     font-weight: 700;
 }
 
-.resetFilters{
+.resetFilters {
     float: right;
     position: absolute;
     font-size: 0.7em;
@@ -55,31 +55,31 @@
     bottom: 76%;
 }
 
-.catalogueInput{
+.catalogueInput {
     width: 100%;
     margin-top: 1%;
     border-radius: 15px;
 }
 
-.salaryInput{
+.salaryInput {
     width: 100%;
     margin-top: 1%;
     border-radius: 15px;
 }
 
-.btn{
+.btn {
     width: 85%;
     margin-top: 5%;
     border-radius: 15px;
     margin-bottom: 4%;
 }
 
-@media screen and (max-width : 1300px) {
-    .resetFilters{
+@media screen and (max-width : 1400px) {
+    .resetFilters {
         margin-top: 5%;
         position: static;
         font-size: 0.7em;
         color: lightgrey;
         cursor: pointer;
     }
-  }
+}

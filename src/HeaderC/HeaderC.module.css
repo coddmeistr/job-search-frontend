@@ -1,42 +1,50 @@
-
-.link{
+.link {
   text-decoration: none;
-  margin-right: 50px;
   color: black;
+  margin: 0 10px;
 }
 
-.linkActive{
+.linkActive {
   text-decoration: none;
   color: #5E96FC;
-  margin-right: 50px;
+  margin: 0 10px;
 }
 
-.linkContainer{
-    position: relative;
-   text-align: center;
-   top: -22px;
+.linkContainer {
+  position: relative;
+  text-align: center;
+  top: -22px;
 }
 
 .link:hover {
-    animation: colorCh 0.3s forwards;
-  }
-  
-  @keyframes colorCh {
-    from {
-      color: black;
-    }
-    to {
-      color: #5E96FC;
-    }
-  }
-  
-  .logo img{
-    width: 50px;
-    height: 50px;
+  animation: colorCh 0.3s forwards;
+}
+
+@keyframes colorCh {
+  from {
+    color: black;
   }
 
-  .logo{
+  to {
+    color: #5E96FC;
+  }
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+}
+
+.logo {
+  position: relative;
+  left: -43%;
+  top: 13px;
+}
+
+@media (max-width : 800px) {
+  .logo {
     position: relative;
-    left: -43%;
+    left: -40%;
     top: 13px;
   }
+}

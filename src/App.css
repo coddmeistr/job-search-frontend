@@ -34,24 +34,25 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
-.preloader{
+.preloader {
   align-self: center;
   text-align: center;
-  position: relative;;
+  position: relative;
   width: 100px;
   height: 100px;
 }
 
-.authText{
+.authText {
   align-self: center;
 }
 
-.authMsg{
+.authMsg {
   display: flex;
   flex-direction: column;
 }

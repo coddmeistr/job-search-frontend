@@ -1,13 +1,13 @@
-.container{
+.container {
     margin: 0 25%;
 }
 
-.containerHeader{
-   background-color: white;
-   border-radius: 15px;
+.containerHeader {
+    background-color: white;
+    border-radius: 15px;
 }
 
-.containerBody{
+.containerBody {
     background-color: white;
     border-radius: 15px;
     margin-top: 30px;
@@ -15,21 +15,21 @@
     text-align: left;
 }
 
-.containerBody p{
+.containerBody p {
     font-weight: 700px;
 }
 
 
-.title{
-   text-align: left;
-   padding-left: 25px;
-   padding-top: 15px;
-   font-size: 20px;
-   color: black;
-   font-weight: 700;
+.title {
+    text-align: left;
+    padding-left: 25px;
+    padding-top: 15px;
+    font-size: 20px;
+    color: black;
+    font-weight: 700;
 }
 
-.favStar{
+.favStar {
     float: right;
     position: relative;
     top: -100px;
@@ -37,40 +37,41 @@
     font-size: 35px;
 }
 
-.town{
+.town {
     text-align: left;
     padding-left: 25px;
     padding-top: 15px;
     padding-bottom: 15px;
 }
 
-.town img{
+.town img {
     width: 15px;
     height: 15px;
 }
 
-.secRow{
+.secRow {
     text-align: left;
     padding-left: 25px;
     padding-top: 15px;
 }
 
 
-.salary{
+.salary {
     font-weight: 700;
 }
 
-.preloader{
+.preloader {
     width: 100px;
-    height: 100px;;
+    height: 100px;
+    ;
     position: absolute;
     left: 50%;
     top: -100px;
 }
 
 @media screen and (max-width : 1000px) {
-    .container{
+    .container {
         margin: 0 5%;
     }
-    
-  }
+
+}

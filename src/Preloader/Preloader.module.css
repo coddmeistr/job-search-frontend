@@ -1,16 +1,17 @@
-:root{
-    --logo-size:80px;
-    --logo-half-size:40px;
+:root {
+    --logo-size: 80px;
+    --logo-half-size: 40px;
 }
-.preloader{
+
+.preloader {
     display: flex;
     width: 100%;
     height: 10vh;
     position: relative;
     transition: 0.5s;
 }
-.preloader__image_animate{
-    background-image: url("https://www.freepnglogos.com/uploads/telegram-logo-png-0.png");
+
+.preloader__image_animate {
     background-size: var(--logo-size) var(--logo-size);
     width: var(--logo-size);
     height: var(--logo-size);
@@ -20,25 +21,31 @@
     transition: 1s linear;
     animation: up-down 1s infinite;
 }
-@keyframes up-down{
-    0%{
+
+@keyframes up-down {
+    0% {
         top: calc(50% - var(--logo-half-size));
     }
-    0%{
+
+    0% {
         top: calc(50% - 10px);
     }
-    75%{
-        top: calc(50%); 
+
+    75% {
+        top: calc(50%);
     }
-    100%{
+
+    100% {
         top: calc(50% - 10px);
     }
-    from{
+
+    from {
         -webkit-transform: rotate(0deg);
         -o-transform: rotate(0deg);
         transform: rotate(0deg);
     }
-    to{
+
+    to {
         -webkit-transform: rotate(360deg);
         -o-transform: rotate(360deg);
         transform: rotate(360deg);

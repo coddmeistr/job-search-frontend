@@ -1,18 +1,18 @@
-.container{
+.container {
     background-color: white;
     border-radius: 15px;
 }
 
-.title{
-   text-align: left;
-   padding: 0 25px;
-   padding-top: 15px;
-   font-size: 20px;
-   color: black;
-   font-weight: 700;
+.title {
+    text-align: left;
+    padding: 0 25px;
+    padding-top: 15px;
+    font-size: 20px;
+    color: black;
+    font-weight: 700;
 }
 
-.favStar{
+.favStar {
     float: right;
     position: relative;
     top: -100px;
@@ -21,34 +21,34 @@
     cursor: pointer;
 }
 
-.town{
+.town {
     text-align: left;
     padding: 0 25px;
     padding-top: 15px;
     padding-bottom: 15px;
 }
 
-.town img{
+.town img {
     width: 15px;
     height: 15px;
 }
 
-.secRow{
+.secRow {
     text-align: left;
     padding: 0 25px;
     padding-top: 15px;
 }
 
-.worktype{
-   display: initial
+.worktype {
+    display: initial
 }
 
-.salary{
+.salary {
     font-weight: 700;
 }
 
 @media screen and (max-width : 1200px) {
-    .favStar{
+    .favStar {
         position: relative;
         top: -60px;
         right: 5%;
@@ -56,5 +56,5 @@
         cursor: pointer;
         color: black
     }
-  
+
 }
