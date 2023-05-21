@@ -63,10 +63,9 @@
 .preloader {
     width: 100px;
     height: 100px;
-    ;
     position: absolute;
-    left: 50%;
-    top: -100px;
+    left: calc(50% - 50px);
+    top: 30%;
 }
 
 @media screen and (max-width : 1000px) {

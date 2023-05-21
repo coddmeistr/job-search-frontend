@@ -10,7 +10,7 @@ import { useState } from "react";
 
 function Filter(props) {
     const dispatch = useDispatch()
-    
+
     // local state
     let [textFrom, setFrom] = useState("")
     let [textTo, setTo] = useState("")
@@ -24,16 +24,16 @@ function Filter(props) {
     })
 
     // functions
-    function handleChangeFrom(event){
+    function handleChangeFrom(event) {
         setFrom(event.target.value)
     }
-    function handleChangeTo(event){
+    function handleChangeTo(event) {
         setTo(event.target.value)
     }
-    function handleChangeCat(text){
+    function handleChangeCat(text) {
         setCat(text)
     }
-    
+
     // on render
     useEffect(() => {
         dispatch(fetchCatalogues())
@@ -50,7 +50,7 @@ function Filter(props) {
                     data-elem="industry-select"
                     value={textCat}
                     onChange={handleChangeCat}
-                    styles={{item: {whiteSpace: "initial"}}}
+                    styles={{ item: { whiteSpace: "initial" } }}
                     id="catSelect"
                     mt="md"
                     withinPortal

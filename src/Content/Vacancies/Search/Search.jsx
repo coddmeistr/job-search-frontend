@@ -10,7 +10,7 @@ function Search(props) {
     let [text, setText] = useState("")
 
     // functions
-    function onChange(event){
+    function onChange(event) {
         setText(event.target.value)
     }
 

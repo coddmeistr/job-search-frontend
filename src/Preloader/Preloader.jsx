@@ -5,7 +5,7 @@ function Preloader() {
 
     return (
         <div className={s.preloader}>
-            <div style={{"background-image": `url("${process.env.REACT_APP_API_URL}logo.png")`}} className={s.preloader__image_animate}></div>
+            <div style={{ "background-image": `url("${process.env.REACT_APP_API_URL}logo.png")` }} className={s.preloader__image_animate}></div>
         </div>
     );
 }

@@ -15,7 +15,7 @@
     width: 100px;
     height: 100px;
     position: absolute;
-    left: 46%;
+    left: calc(50% - 50px);
     top: 30%;
 }
 

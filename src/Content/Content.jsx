@@ -8,12 +8,12 @@ function Content() {
     return (
         <div className={s.content}>
             <Routes>
-               <Route path="/" element={<Vacancies/>} />
-               <Route path="/vacancy" element={<VacancyFull/>} >
-                   <Route path=":vacID" element={<VacancyFull/>} />
-               </Route>
-               <Route path="/fav" element={<Favorites/>} />
-           </Routes>
+                <Route path="/" element={<Vacancies />} />
+                <Route path="/vacancy" element={<VacancyFull />} >
+                    <Route path=":vacID" element={<VacancyFull />} />
+                </Route>
+                <Route path="/fav" element={<Favorites />} />
+            </Routes>
         </div>
     );
 }

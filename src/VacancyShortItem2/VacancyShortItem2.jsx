@@ -3,7 +3,7 @@ import { contains } from "../methods";
 
 // This component is like VacancyShortItem but with small changes
 function VacancyShortItem2(props) {
-    
+
     // format salary string due to salary options
     let salaryString = ""
     if (props.salary_from > 0 && props.salary_to > 0) salaryString = `з/п ${props.salary_from} - ${props.salary_to} ${props.currency}`

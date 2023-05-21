@@ -51,7 +51,7 @@ function Favorites(props) {
         dispatch(setFavList(favlist))
     }
 
-    function refetchFavs(ids){
+    function refetchFavs(ids) {
         dispatch(setPage(1))
         dispatch(setFetchingFavs(true))
         dispatch(fetchVacanciesById({ ids, page: 1, itemsOnPage: ITEMS_ON_PAGE }))
@@ -94,7 +94,7 @@ function Favorites(props) {
     }, [])
 
     // If no items left on page, theb refetch
-    if (vacFiltered.length === 0 && pages>1 && !isFetching){
+    if (vacFiltered.length === 0 && pages > 1 && !isFetching) {
         refetchFavs(favlist)
     }
 

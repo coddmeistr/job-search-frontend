@@ -21,40 +21,40 @@ function Vacancies() {
         await dispatch(fetchVacancies({ keyword: usedKeyword, from: from, to: to, cat: cat, page: page, itemsOnPage: ITEMS_ON_PAGE }))
         dispatch(setPage(page))
     }
-    
-    function onSearchClick(keyword){
+
+    function onSearchClick(keyword) {
         dispatch(setPage(1))
         dispatch(setFetchingVacs(true))
         dispatch(fetchVacancies({ keyword: keyword, from: from, to: to, cat: cat, page: 1, itemsOnPage: ITEMS_ON_PAGE }))
         dispatch(setUsedKeyword(keyword))
     }
 
-    function onFilterClick(from, to, cat){
-        dispatch(setFilters({from, to, cat}))
+    function onFilterClick(from, to, cat) {
+        dispatch(setFilters({ from, to, cat }))
         dispatch(setFetchingVacs(true))
         dispatch(fetchVacancies({ keyword: usedKeyword, from: from, to: to, cat: cat, page: 1, itemsOnPage: ITEMS_ON_PAGE }))
     }
 
-    function onFilterReset(){
-        dispatch(setFilters({from: 0, to: 0, cat: null}))
+    function onFilterReset() {
+        dispatch(setFilters({ from: 0, to: 0, cat: null }))
         dispatch(setFetchingVacs(true))
-        dispatch(fetchVacancies({ keyword: usedKeyword, from: 0, to: 0, cat: null, page: 1, itemsOnPage: ITEMS_ON_PAGE}))
+        dispatch(fetchVacancies({ keyword: usedKeyword, from: 0, to: 0, cat: null, page: 1, itemsOnPage: ITEMS_ON_PAGE }))
     }
 
 
     return (
         <div className={s.container}>
-           <div className={s.gridContainer}>
-              <div className={s.filter}>
-                 <Filter onFilterClick={onFilterClick} handleResetFilters={onFilterReset} />
-              </div>
-              <div className={s.search}>
-                 <Search onSearchClick={onSearchClick} />
-              </div>
-              <div className={s.vacancy}>
-                 <VacancyList onPageClick={onPageClick} usedKeyword={usedKeyword} from={from} to={to} cat={cat} />
-              </div>
-           </div>
+            <div className={s.gridContainer}>
+                <div className={s.filter}>
+                    <Filter onFilterClick={onFilterClick} handleResetFilters={onFilterReset} />
+                </div>
+                <div className={s.search}>
+                    <Search onSearchClick={onSearchClick} />
+                </div>
+                <div className={s.vacancy}>
+                    <VacancyList onPageClick={onPageClick} usedKeyword={usedKeyword} from={from} to={to} cat={cat} />
+                </div>
+            </div>
         </div>
     );
 }

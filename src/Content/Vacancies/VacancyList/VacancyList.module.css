@@ -30,7 +30,7 @@
         width: 100px;
         height: 100px;
         top: 100%;
-        right: 42%;
+        left: calc(50% - 50px);
         position: absolute;
     }
 
