@@ -14,6 +14,10 @@ function App() {
       let response = await dispatch(getAuthData())
       let authData = response.payload.data
 
+      if (authData===undefined){
+        return
+      }
+
       // Просрочен ли токен
       if (Date.now()*1000-authData.ttl){
           

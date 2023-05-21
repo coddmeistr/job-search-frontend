@@ -61,6 +61,7 @@ function VacancyFull(props) {
                 return
             }
         }
+
         dispatch(fetchVacancy({ id: params.vacID }))
         dispatch(setFetchingVac(true))
     }, [])

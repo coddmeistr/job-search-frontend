@@ -1,6 +1,5 @@
 .container{
-    margin-left: 500px;
-    margin-right: 500px;
+    margin: 0 25%;
 }
 
 .containerHeader{
@@ -62,6 +61,7 @@
 }
 
 .preloader{
-    position: relative;
-    top: -800px;
+    position: absolute;
+    left: 50%;
+    top: -100px;
 }

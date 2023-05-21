@@ -10,7 +10,7 @@ function HeaderC() {
   return (
     <Header height={80} className={s.header} mb={30}>
       <div className={s.logo}>
-        <img src="https://www.freepnglogos.com/uploads/telegram-logo-png-0.png" atl="logo"></img>
+        <img src={process.env.REACT_APP_API_URL+"logo.png"} atl="logo"></img>
       </div>
       <div className={s.linkContainer}>
         <NavLink to="/" className={linkActive}>

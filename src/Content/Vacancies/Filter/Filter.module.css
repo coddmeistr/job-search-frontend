@@ -1,61 +1,75 @@
 .container{
+    display: flex;
+    flex-direction: column;
     background-color: white;
     border-radius: 10px;
+    align-items: center;
 }
 
 .title{
+    width: 85%;
     text-align: left;
-    padding-left: 25px;
-    padding-top: 15px;
-    font-size: 20px;
+    margin-top: 5%;
+    font-size: 1.5em;
     color: black;
     font-weight: 700;
+}
+
+.titletText{
+    text-align: left;
 }
 
 .catalogueBlock{
+    width: 85%;
     text-align: left;
-    padding-left: 25px;
-    padding-top: 15px;
-    font-size: 17px;
+    padding-top: 1%;
+    font-size: 1em;
     color: black;
     font-weight: 700;
+}
 
+.catalogueTitle{
+    margin-bottom: 10px;
+}
+
+.salaryTitle{
+    margin-bottom: 1%;
 }
 
 .salaryBlock{
+    width: 85%;
     text-align: left;
-    padding-left: 25px;
-    padding-top: 15px;
-    font-size: 17px;
+    padding-top: 1%;
+    font-size: 1em;
     color: black;
     font-weight: 700;
 }
 
 .resetFilters{
     float: right;
-    position: relative;
-    top: -305px;
-    right: 20px;
-    font-size: 12px;
+    position: absolute;
+    font-size: 0.7em;
     color: lightgrey;
-    font-weight: 700px;
     cursor: pointer;
+    left: 27%;
+    bottom: 76%;
 }
 
 .catalogueInput{
-    width: calc(95%);
+    width: 100%;
+    margin-top: 1%;
+    border-radius: 15px;
 }
 
 .salaryInput{
-    width: calc(95%);
-    margin-top: 5px;
+    width: 100%;
+    margin-top: 1%;
     border-radius: 15px;
 }
 
 .btn{
-    width: 90%;
-    padding-left: 25px;
-    margin-top: 10px;
+    width: 85%;
+    margin-top: 5%;
     border-radius: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 4%;
 }

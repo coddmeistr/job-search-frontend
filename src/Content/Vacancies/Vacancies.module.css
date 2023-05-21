@@ -6,9 +6,7 @@
     display: grid;
     grid-template-columns: 3fr 7fr;
     grid-template-rows: auto;
-    margin: 10px;
-    margin-left: 250px;
-    margin-right: 250px;
+    margin: 10px  13%;
     gap: 5px;
     border-radius: 10px;
   }
@@ -19,6 +17,7 @@
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
+    min-width: 100%;
   }
 
   .search{
@@ -27,6 +26,7 @@
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
+    min-width: 100%;
   }
 
   .vacancy{
@@ -35,4 +35,5 @@
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
+    min-width: 100%;
   }

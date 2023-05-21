@@ -37,11 +37,12 @@ function Filter(props) {
     return (
         <div className={s.container}>
             <div className={s.title}>
-                Фильтры
+                <span className={s.titleText}>Фильтры</span>
             </div>
             <div className={s.catalogueBlock}>
-                <div>Отрасль</div>
+                <div className={s.cataloguetItle}>Отрасль</div>
                 <Select
+                    styles={{item: {whiteSpace: "initial"}}}
                     id="catSelect"
                     mt="md"
                     withinPortal
@@ -51,7 +52,7 @@ function Filter(props) {
                 />
             </div>
             <div className={s.salaryBlock}>
-                <div>Оклад</div>
+                <div className={s.salaryTitle}>Оклад</div>
                 <TextInput onChange={handleChangeFrom} value={textFrom} placeholder="От" className={s.salaryInput} />
                 <TextInput onChange={handleChangeTo} value={textTo} placeholder="До" className={s.salaryInput} />
             </div>

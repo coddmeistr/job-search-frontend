@@ -79,8 +79,8 @@ function VacancyList(props) {
     const isFetching = useSelector(state => state.vacancies.isFetching)
 
     return (
-        <div>
-            <div style={{filter: isFetching ? "blur(3px)" : "blur(0px)"}}>
+        <div className={s.flexContainer}>
+            <div style={{filter: isFetching ? "blur(3px)" : "blur(0px)"}} className={s.vacanciesBlock}>
                 {vacancies.map((item) => <div className={s.el}><VacancyShortItem favlist={favlist} onFavClick={() => handleFavClick(item.id)} id={item.id} name={item.profession} salary_from={item.payment_from} salary_to={item.payment_to} currency={item.currency} town={item.town.title} worktype={item.type_of_work.title} /></div>)}
                 {vacancies.length === 0 && !isFetching ? <div>По вашему запросу ничего не найдено.</div> : <></>}
                 {pages > 1 ? <Pagination className={s.pagination} show={false}>

@@ -9,10 +9,6 @@ module.exports = (env) => {
         plugins: [
             // add the plugin to your plugins array
             new webpack.DefinePlugin({
-                PRODUCTION: JSON.stringify(true),
-                VERSION: JSON.stringify('5fa3b9'),
-                BROWSER_SUPPORTS_HTML5: true,
-                "process.env.API_URL": JSON.stringify(env.API_URL)
             })
         ]
     };

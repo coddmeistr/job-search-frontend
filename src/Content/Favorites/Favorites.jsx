@@ -28,7 +28,7 @@ function Favorites(props) {
     const page = useSelector(state => state.favorites.page)
 
     if (vacFiltered.length === 0 && pages>1){
-        refetchFavs()
+        refetchFavs(favlist)
     }
 
     async function onPageClick(page) {
@@ -37,10 +37,10 @@ function Favorites(props) {
         dispatch(setPage(page))
     }
 
-    async function refetchFavs(){
+    async function refetchFavs(ids){
         dispatch(setPage(1))
         dispatch(setFetchingFavs(true))
-        dispatch(fetchVacanciesById({ ids: favlist, page: 1 }))
+        dispatch(fetchVacanciesById({ ids: ids, page: 1 }))
     }
 
     // pagination
@@ -93,9 +93,9 @@ function Favorites(props) {
         } else {
             favlist = JSON.parse(favlistStr)
         }
-        
+
         dispatch(setFavList(favlist))
-        refetchFavs()
+        refetchFavs(favlist)
     }, [])
 
     return (
