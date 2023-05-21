@@ -3,7 +3,12 @@
 }
 
 .el{
-    margin-top: 30px;
+
+}
+
+.favBlock{
+    display: flex;
+   flex-direction: column;
 }
 
 .preloader{
@@ -13,6 +18,5 @@
 }
 
 .pagination{
-    margin-top: 20px;
-    margin-left: 35%;
+    align-self: center;
 }

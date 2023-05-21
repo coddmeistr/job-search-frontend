@@ -1,7 +1,6 @@
 import s from "./Search.module.css"
-import { TextInput, TextInputProps, ActionIcon, useMantineTheme } from '@mantine/core';
+import { TextInput, ActionIcon, useMantineTheme } from '@mantine/core';
 import { IconSearch, IconArrowRight, IconArrowLeft } from '@tabler/icons-react';
-import { userAPI } from "../../../API";
 import { useState } from "react";
 
 function Search(props) {

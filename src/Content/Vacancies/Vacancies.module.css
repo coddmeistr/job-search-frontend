@@ -1,5 +1,5 @@
 .container{
-
+  display: initial;
 }
 
 .gridContainer {
@@ -36,4 +36,14 @@
     padding: 10px;
     border-radius: 10px;
     min-width: 100%;
+  }
+
+  @media screen and (max-width : 800px) {
+    .gridContainer {
+      display: flex;
+      flex-direction: column;
+      margin: 10px  13%;
+      border-radius: 10px;
+    }
+    
   }

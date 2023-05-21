@@ -12,7 +12,7 @@ function VacancyShortItem(props) {
         return arr.indexOf(elem) !== -1;
     }
 
-    function vacancyClickHandler(){
+    function vacancyClickHandler() {
         setRedirect(true)
     }
 
@@ -22,7 +22,7 @@ function VacancyShortItem(props) {
     else if (props.salary_from <= 0 && props.salary_to > 0) salaryString = `з/п ${props.salary_to} ${props.currency}`
     else salaryString = `з/п не указана`
 
-    if (isRedirect) return <Navigate to={`../vacancy/${props.id}/`}/>
+    if (isRedirect) return <Navigate to={`../vacancy/${props.id}/`} />
 
     return (
         <div data-elem={`vacancy-${props.id}`} onClick={vacancyClickHandler} className={s.container}>
@@ -44,7 +44,10 @@ function VacancyShortItem(props) {
                 <span><img src={`${process.env.REACT_APP_API_URL}metroloc.png`} alt="metrologo"></img></span>
                 <span>{props.town}</span>
             </div>
-            <div data-elem={`vacancy-${props.id}-shortlist-button`} className={s.favStar} onClick={props.onFavClick}>
+            <div data-elem={`vacancy-${props.id}-shortlist-button`} className={s.favStar} onClick={(event) => {
+                props.onFavClick()
+                event.stopPropagation()
+            }}>
                 {contains(props.favlist, props.id) ? "★" : "☆"}
             </div>
         </div>

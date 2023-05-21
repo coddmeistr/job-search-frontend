@@ -63,13 +63,6 @@ function Filter(props) {
                 <TextInput data-elem="salary-from-input" onChange={handleChangeFrom} value={textFrom} placeholder="От" className={s.salaryInput} />
                 <TextInput data-elem="salary-to-input" onChange={handleChangeTo} value={textTo} placeholder="До" className={s.salaryInput} />
             </div>
-            <Button
-                data-elem="search-button"
-                className={s.btn}
-                onClick={() => props.onFilterClick(textFrom, textTo, keyPairs[document.getElementById("catSelect").value])}
-            >
-                Применить
-            </Button>
             <div className={s.resetFilters} onClick={() => {
                 setFrom("")
                 setTo("")
@@ -78,6 +71,13 @@ function Filter(props) {
             }}>
                 Сбросить фильтры ×
             </div>
+            <Button
+                data-elem="search-button"
+                className={s.btn}
+                onClick={() => props.onFilterClick(textFrom, textTo, keyPairs[document.getElementById("catSelect").value])}
+            >
+                Применить
+            </Button>
         </div>
     );
 }

@@ -100,7 +100,7 @@ function Favorites(props) {
 
     return (
         <div className={s.container}>
-            <div style={{ filter: isFetching ? "blur(3px)" : "blur(0px)" }}>
+            <div style={{ filter: isFetching ? "blur(3px)" : "blur(0px)" }} className={s.favBlock}>
                 {vacFiltered.map((item) => <div className={s.el}><VacancyShortItem favlist={favlist} onFavClick={() => handleFavClick(item.id)} id={item.id} name={item.profession} salary_from={item.payment_from} salary_to={item.payment_to} currency={item.currency} town={item.town.title} worktype={item.type_of_work.title} /></div>)}
                 {vacFiltered.length === 0 && !isFetching ? <div>У вас нет ничего в избранном.</div> : <></>}
                 <div className={s.pagination}>

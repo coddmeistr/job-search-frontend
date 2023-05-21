@@ -4,15 +4,16 @@
 }
 
 .el{
-    margin-bottom: 25px;
+    
 }
 
 .pagination{
-    margin-left: 32%;
+    align-self: center;
 }
 
 .vacanciesBlock{
-
+   display: flex;
+   flex-direction: column;
 }
 
 .preloader{

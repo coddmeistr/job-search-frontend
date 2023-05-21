@@ -73,3 +73,13 @@
     border-radius: 15px;
     margin-bottom: 4%;
 }
+
+@media screen and (max-width : 1300px) {
+    .resetFilters{
+        margin-top: 5%;
+        position: static;
+        font-size: 0.7em;
+        color: lightgrey;
+        cursor: pointer;
+    }
+  }

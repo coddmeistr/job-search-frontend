@@ -25,12 +25,12 @@ function VacancyList(props) {
         left = 1
         right = left + Math.min(paginationPages, pages)
     } else if (page + offset > pages) {
-            right = pages + 1
-            left = right - Math.min(paginationPages, pages)
-        }
-        else{
-            right+=1
-        }
+        right = pages + 1
+        left = right - Math.min(paginationPages, pages)
+    }
+    else {
+        right += 1
+    }
 
     for (let i = left; i < right; i++) {
         paginagionJsx.push(
@@ -80,16 +80,18 @@ function VacancyList(props) {
 
     return (
         <div className={s.flexContainer}>
-            <div style={{filter: isFetching ? "blur(3px)" : "blur(0px)"}} className={s.vacanciesBlock}>
+            <div style={{ filter: isFetching ? "blur(3px)" : "blur(0px)" }} className={s.vacanciesBlock}>
                 {vacancies.map((item) => <div className={s.el}><VacancyShortItem favlist={favlist} onFavClick={() => handleFavClick(item.id)} id={item.id} name={item.profession} salary_from={item.payment_from} salary_to={item.payment_to} currency={item.currency} town={item.town.title} worktype={item.type_of_work.title} /></div>)}
                 {vacancies.length === 0 && !isFetching ? <div>По вашему запросу ничего не найдено.</div> : <></>}
-                {pages > 1 ? <Pagination className={s.pagination} show={false}>
-                    <Pagination.First onClick={() => props.onPageClick(1)} />
-                    <Pagination.Prev onClick={() => props.onPageClick(page - 1)} />
-                    {paginagionJsx}
-                    <Pagination.Next onClick={() => props.onPageClick(page + 1)} />
-                    <Pagination.Last onClick={() => props.onPageClick(pages)} />
-                </Pagination> : <></>}
+                <div className={s.pagination}>
+                    {pages > 1 ? <Pagination>
+                        <Pagination.First onClick={() => props.onPageClick(1)} />
+                        <Pagination.Prev onClick={() => props.onPageClick(page - 1)} />
+                        {paginagionJsx}
+                        <Pagination.Next onClick={() => props.onPageClick(page + 1)} />
+                        <Pagination.Last onClick={() => props.onPageClick(pages)} />
+                    </Pagination> : <></>}
+                </div>
             </div>
             <div className={s.preloader} style={{ display: isFetching ? `block` : `none` }}><Preloader /></div>
         </div>

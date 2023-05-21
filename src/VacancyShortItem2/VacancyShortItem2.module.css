@@ -5,7 +5,7 @@
 
 .title{
    text-align: left;
-   padding-left: 25px;
+   padding: 0 25px;
    padding-top: 15px;
    font-size: 20px;
    color: black;
@@ -23,7 +23,7 @@
 
 .town{
     text-align: left;
-    padding-left: 25px;
+    padding: 0 25px;
     padding-top: 15px;
     padding-bottom: 15px;
 }
@@ -35,15 +35,26 @@
 
 .secRow{
     text-align: left;
-    padding-left: 25px;
+    padding: 0 25px;
     padding-top: 15px;
 }
 
 .worktype{
-
-
+   display: initial
 }
 
 .salary{
     font-weight: 700;
+}
+
+@media screen and (max-width : 1200px) {
+    .favStar{
+        position: relative;
+        top: -60px;
+        right: 5%;
+        font-size: 35px;
+        cursor: pointer;
+        color: black
+    }
+  
 }
