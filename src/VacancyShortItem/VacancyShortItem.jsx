@@ -1,13 +1,20 @@
 import s from "./VacancyShortItem.module.css"
 import { LinkContainer } from "react-router-bootstrap";
+import { useState } from "react";
+import { Navigate } from "react-router-dom";
 
 
 function VacancyShortItem(props) {
+    let [isRedirect, setRedirect] = useState(false)
 
     const contains = (arr, elem) => {
-        if (arr===null || arr===undefined) return -1
+        if (arr === null || arr === undefined) return -1
         return arr.indexOf(elem) !== -1;
-     }
+    }
+
+    function vacancyClickHandler(){
+        setRedirect(true)
+    }
 
     let salaryString = ""
     if (props.salary_from > 0 && props.salary_to > 0) salaryString = `з/п ${props.salary_from} - ${props.salary_to} ${props.currency}`
@@ -15,8 +22,10 @@ function VacancyShortItem(props) {
     else if (props.salary_from <= 0 && props.salary_to > 0) salaryString = `з/п ${props.salary_to} ${props.currency}`
     else salaryString = `з/п не указана`
 
+    if (isRedirect) return <Navigate to={`../vacancy/${props.id}/`}/>
+
     return (
-        <div className={s.container}>
+        <div data-elem={`vacancy-${props.id}`} onClick={vacancyClickHandler} className={s.container}>
             <LinkContainer to={`../vacancy/${props.id}/`}>
                 <div className={s.title} onClick={props.linkClickHandler}>
                     {props.name}
@@ -35,7 +44,7 @@ function VacancyShortItem(props) {
                 <span><img src={`${process.env.REACT_APP_API_URL}metroloc.png`} alt="metrologo"></img></span>
                 <span>{props.town}</span>
             </div>
-            <div className={s.favStar} onClick={props.onFavClick}>
+            <div data-elem={`vacancy-${props.id}-shortlist-button`} className={s.favStar} onClick={props.onFavClick}>
                 {contains(props.favlist, props.id) ? "★" : "☆"}
             </div>
         </div>

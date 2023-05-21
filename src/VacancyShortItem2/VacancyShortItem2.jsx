@@ -1,6 +1,5 @@
 import s from "./VacancyShortItem2.module.css"
 
-
 function VacancyShortItem2(props) {
 
     const contains = (arr, elem) => {
@@ -32,7 +31,7 @@ function VacancyShortItem2(props) {
                 <span><img src={`${process.env.REACT_APP_API_URL}metroloc.png`} alt="metrologo"></img></span>
                 <span>{props.town}</span>
             </div>
-            <div className={s.favStar} onClick={props.onFavClick}>
+            <div data-elem={`vacancy-${props.id}-shortlist-button`} className={s.favStar} onClick={props.onFavClick}>
                 {contains(props.favlist, props.id) ? "★" : "☆"}
             </div>
         </div>

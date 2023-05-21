@@ -14,12 +14,16 @@ function Filter(props) {
     
     let [textFrom, setFrom] = useState("")
     let [textTo, setTo] = useState("")
+    let [textCat, setCat] = useState("")
 
     function handleChangeFrom(event){
         setFrom(event.target.value)
     }
     function handleChangeTo(event){
         setTo(event.target.value)
+    }
+    function handleChangeCat(text){
+        setCat(text)
     }
     
     useEffect(() => {
@@ -42,6 +46,9 @@ function Filter(props) {
             <div className={s.catalogueBlock}>
                 <div className={s.cataloguetItle}>Отрасль</div>
                 <Select
+                    data-elem="industry-select"
+                    value={textCat}
+                    onChange={handleChangeCat}
                     styles={{item: {whiteSpace: "initial"}}}
                     id="catSelect"
                     mt="md"
@@ -53,10 +60,11 @@ function Filter(props) {
             </div>
             <div className={s.salaryBlock}>
                 <div className={s.salaryTitle}>Оклад</div>
-                <TextInput onChange={handleChangeFrom} value={textFrom} placeholder="От" className={s.salaryInput} />
-                <TextInput onChange={handleChangeTo} value={textTo} placeholder="До" className={s.salaryInput} />
+                <TextInput data-elem="salary-from-input" onChange={handleChangeFrom} value={textFrom} placeholder="От" className={s.salaryInput} />
+                <TextInput data-elem="salary-to-input" onChange={handleChangeTo} value={textTo} placeholder="До" className={s.salaryInput} />
             </div>
             <Button
+                data-elem="search-button"
                 className={s.btn}
                 onClick={() => props.onFilterClick(textFrom, textTo, keyPairs[document.getElementById("catSelect").value])}
             >
@@ -65,6 +73,7 @@ function Filter(props) {
             <div className={s.resetFilters} onClick={() => {
                 setFrom("")
                 setTo("")
+                setCat("")
                 props.handleResetFilters()
             }}>
                 Сбросить фильтры ×
