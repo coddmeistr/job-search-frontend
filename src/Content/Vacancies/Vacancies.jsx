@@ -3,40 +3,42 @@ import Search from "./Search/Search";
 import s from "./Vacancies.module.css"
 import VacancyList from "./VacancyList/VacancyList";
 import { useDispatch } from "react-redux";
-import { fetchVacancies, setFetchingVacs, setFilters, setPage, setUsedKeyword } from "../../redux/vacanciesReducer";
+import { fetchVacancies, setFetchingVacs, setFilters, setPage, setUsedKeyword, ITEMS_ON_PAGE } from "../../redux/vacanciesReducer";
 import { useSelector } from "react-redux";
 
 function Vacancies() {
     const dispatch = useDispatch()
 
+    // selectors
     const from = useSelector(state => state.vacancies.filterSalaryFrom)
     const to = useSelector(state => state.vacancies.filterSalaryTo)
     const cat = useSelector(state => state.vacancies.filterCatalogue)
     const usedKeyword = useSelector(state => state.vacancies.usedKeyword)
 
+    // functions
     async function onPageClick(page) {
         dispatch(setFetchingVacs(true))
-        await dispatch(fetchVacancies({ keyword: usedKeyword, from: from, to: to, cat: cat, page: page }))
+        await dispatch(fetchVacancies({ keyword: usedKeyword, from: from, to: to, cat: cat, page: page, itemsOnPage: ITEMS_ON_PAGE }))
         dispatch(setPage(page))
     }
-
-    async function onSearchClick(keyword){
+    
+    function onSearchClick(keyword){
         dispatch(setPage(1))
         dispatch(setFetchingVacs(true))
-        dispatch(fetchVacancies({ keyword: keyword, from: from, to: to, cat: cat, page: 1 }))
+        dispatch(fetchVacancies({ keyword: keyword, from: from, to: to, cat: cat, page: 1, itemsOnPage: ITEMS_ON_PAGE }))
         dispatch(setUsedKeyword(keyword))
     }
 
-    async function onFilterClick(from, to, cat){
+    function onFilterClick(from, to, cat){
         dispatch(setFilters({from, to, cat}))
         dispatch(setFetchingVacs(true))
-        dispatch(fetchVacancies({ keyword: usedKeyword, from: from, to: to, cat: cat, page: 1 }))
+        dispatch(fetchVacancies({ keyword: usedKeyword, from: from, to: to, cat: cat, page: 1, itemsOnPage: ITEMS_ON_PAGE }))
     }
 
-    async function onFilterReset(){
+    function onFilterReset(){
         dispatch(setFilters({from: 0, to: 0, cat: null}))
         dispatch(setFetchingVacs(true))
-        dispatch(fetchVacancies({ keyword: usedKeyword, from: 0, to: 0, cat: null, page: 1}))
+        dispatch(fetchVacancies({ keyword: usedKeyword, from: 0, to: 0, cat: null, page: 1, itemsOnPage: ITEMS_ON_PAGE}))
     }
 
 

@@ -6,14 +6,16 @@ import { useState } from "react";
 function Search(props) {
     const theme = useMantineTheme();
 
+    // local state
     let [text, setText] = useState("")
 
+    // functions
     function onChange(event){
         setText(event.target.value)
     }
 
     return (
-        <div>
+        <div className={s.container}>
             <TextInput
                 data-elem="search-input"
                 onChange={onChange}

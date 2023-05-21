@@ -13,13 +13,14 @@ function VacancyFull(props) {
     const dispatch = useDispatch()
     const params = useParams()
 
-
+    // selectors
     const vac = useSelector(state => state.vacancy.vacancy)
     const vacancies = useSelector(state => state.vacancies.vacancies)
     const vacanciesFav = useSelector(state => state.favorites.vacancies)
     const favlist = useSelector(state => state.vacancies.favlist)
     const isFetching = useSelector(state => state.vacancy.isFetching)
 
+    // functions
     function handleFavClick(id) {
         let favlistStr = localStorage.getItem("favlist")
         let favlist
@@ -40,7 +41,9 @@ function VacancyFull(props) {
         localStorage.setItem("favlist", JSON.stringify(favlist))
     }
 
+    // on render
     useEffect(() => {
+        // managa favlist storage
         const favlistStr = localStorage.getItem("favlist")
         let favlist
         if (favlistStr === undefined || favlistStr === null || favlistStr === "") {
@@ -49,7 +52,7 @@ function VacancyFull(props) {
             favlist = JSON.parse(favlistStr)
         }
         dispatch(setFavList(favlist))
-
+        // if vacancy exists in one of 2 arrays then set it without fetching
         let matchVac = vacancies.find((item) => item.id === Number(params.vacID))
         if (matchVac !== undefined) {
             dispatch(setVacancy(matchVac))
@@ -61,11 +64,12 @@ function VacancyFull(props) {
                 return
             }
         }
-
+        // fetch vacancy if it dont exist
         dispatch(fetchVacancy({ id: params.vacID }))
         dispatch(setFetchingVac(true))
     }, [])
 
+    // if no vacancy
     if (vac === null) return <div></div>
 
     return (

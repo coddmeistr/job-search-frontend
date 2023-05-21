@@ -2,26 +2,27 @@ import s from "./VacancyShortItem.module.css"
 import { LinkContainer } from "react-router-bootstrap";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
+import { contains } from "../methods";
 
 
 function VacancyShortItem(props) {
+
+    // local state
     let [isRedirect, setRedirect] = useState(false)
 
-    const contains = (arr, elem) => {
-        if (arr === null || arr === undefined) return -1
-        return arr.indexOf(elem) !== -1;
-    }
-
+    // functions
     function vacancyClickHandler() {
         setRedirect(true)
     }
 
+    // format salary string due to salary options
     let salaryString = ""
     if (props.salary_from > 0 && props.salary_to > 0) salaryString = `з/п ${props.salary_from} - ${props.salary_to} ${props.currency}`
     else if (props.salary_from > 0 && props.salary_to <= 0) salaryString = `з/п от ${props.salary_from} ${props.currency}`
     else if (props.salary_from <= 0 && props.salary_to > 0) salaryString = `з/п ${props.salary_to} ${props.currency}`
     else salaryString = `з/п не указана`
 
+    // redirect on full vacancy
     if (isRedirect) return <Navigate to={`../vacancy/${props.id}/`} />
 
     return (

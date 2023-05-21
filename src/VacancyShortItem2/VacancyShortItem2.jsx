@@ -1,12 +1,10 @@
 import s from "./VacancyShortItem2.module.css"
+import { contains } from "../methods";
 
+// This component is like VacancyShortItem but with small changes
 function VacancyShortItem2(props) {
-
-    const contains = (arr, elem) => {
-        if (arr === null || arr === undefined) return -1
-        return arr.indexOf(elem) !== -1;
-    }
-
+    
+    // format salary string due to salary options
     let salaryString = ""
     if (props.salary_from > 0 && props.salary_to > 0) salaryString = `з/п ${props.salary_from} - ${props.salary_to} ${props.currency}`
     else if (props.salary_from > 0 && props.salary_to <= 0) salaryString = `з/п от ${props.salary_from} ${props.currency}`

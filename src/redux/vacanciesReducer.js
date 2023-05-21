@@ -1,11 +1,13 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {userAPI} from "../API";
 
+export const ITEMS_ON_PAGE = 5
+export const SHOWING_PAGES = 5
 
 export const fetchVacancies = createAsyncThunk(
     "vacancies/fetchVacancies",
-    async ({keyword, from, to, cat, page}, {rejectWithValue, dispatch}) => {
-        const response = await userAPI.fetchVacancies(keyword, from, to, cat, page)
+    async ({keyword, from, to, cat, page, itemsOnPage}, {rejectWithValue, dispatch}) => {
+        const response = await userAPI.fetchVacancies(keyword, from, to, cat, page, itemsOnPage)
         if (response.status === 200){
             dispatch(setVacancies(response.data))
             dispatch(setFetchingVacs(false))
@@ -50,7 +52,7 @@ export const vacanciesReducer = createSlice({
     reducers: {
         setVacancies: (state, action) => {
             state.vacancies = action.payload.objects
-            state.totalPages = Math.ceil(action.payload.total / 20)
+            state.totalPages = Math.ceil(action.payload.total / ITEMS_ON_PAGE)
         },
         setCatalogues: (state, action) => {
             state.catalogues = action.payload

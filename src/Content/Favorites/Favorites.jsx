@@ -8,16 +8,13 @@ import { fetchVacanciesById, setFetchingFavs } from "../../redux/favoritesReduce
 import { setFavList } from "../../redux/vacanciesReducer";
 import Preloader from './../../Preloader/Preloader';
 import { setPage } from "../../redux/favoritesReducer";
+import { contains } from "../../methods";
+import { ITEMS_ON_PAGE, SHOWING_PAGES } from "../../redux/favoritesReducer";
 
 
 
 function Favorites(props) {
     const dispatch = useDispatch()
-
-    const contains = (arr, elem) => {
-        if (arr === null || arr === undefined) return -1
-        return arr.indexOf(elem) !== -1;
-    }
 
     // selectors
     const vacancies = useSelector(state => state.favorites.vacancies)
@@ -27,47 +24,14 @@ function Favorites(props) {
     const pages = useSelector(state => state.favorites.totalPages)
     const page = useSelector(state => state.favorites.page)
 
-    if (vacFiltered.length === 0 && pages>1){
-        refetchFavs(favlist)
-    }
-
+    // functions
     async function onPageClick(page) {
         dispatch(setFetchingFavs(true))
-        await dispatch(fetchVacanciesById({ ids: favlist, page: page }))
+        await dispatch(fetchVacanciesById({ ids: favlist, page: page, itemsOnPage: ITEMS_ON_PAGE }))
         dispatch(setPage(page))
     }
 
-    async function refetchFavs(ids){
-        dispatch(setPage(1))
-        dispatch(setFetchingFavs(true))
-        dispatch(fetchVacanciesById({ ids: ids, page: 1 }))
-    }
-
-    // pagination
-    const paginationPages = 5
-    let paginagionJsx = []
-    const offset = Math.floor(paginationPages / 2)
-    let left = page - offset
-    let right = page + offset
-    if (page - offset <= 0) {
-        left = 1
-        right = left + Math.min(paginationPages, pages)
-    } else if (page + offset > pages) {
-        right = pages + 1
-        left = right - Math.min(paginationPages, pages)
-    }
-    else {
-        right += 1
-    }
-
-    for (let i = left; i < right; i++) {
-        paginagionJsx.push(
-            <Pagination.Item onClick={() => onPageClick(i)} active={page === i ? true : false} >{i}</Pagination.Item>
-        )
-    }
-
-
-    async function handleFavClick(id) {
+    function handleFavClick(id) {
         // manage favlist storage
         let favlistStr = localStorage.getItem("favlist")
         let favlist
@@ -82,9 +46,39 @@ function Favorites(props) {
             favlist.push(id)
         }
         localStorage.setItem("favlist", JSON.stringify(favlist))
+        // update favlist state
         dispatch(setFavList(favlist))
     }
 
+    function refetchFavs(ids){
+        dispatch(setPage(1))
+        dispatch(setFetchingFavs(true))
+        dispatch(fetchVacanciesById({ ids, page: 1, itemsOnPage: ITEMS_ON_PAGE }))
+    }
+
+    // pagination
+    let paginagionJsx = []
+    const offset = Math.floor(SHOWING_PAGES / 2)
+    let left = page - offset
+    let right = page + offset
+    if (page - offset <= 0) {
+        left = 1
+        right = left + Math.min(SHOWING_PAGES, pages)
+    } else if (page + offset > pages) {
+        right = pages + 1
+        left = right - Math.min(SHOWING_PAGES, pages)
+    }
+    else {
+        right += 1
+    }
+
+    for (let i = left; i < right; i++) {
+        paginagionJsx.push(
+            <Pagination.Item onClick={() => onPageClick(i)} active={page === i ? true : false} >{i}</Pagination.Item>
+        )
+    }
+
+    // on render
     useEffect(() => {
         const favlistStr = localStorage.getItem("favlist")
         let favlist
@@ -97,6 +91,11 @@ function Favorites(props) {
         dispatch(setFavList(favlist))
         refetchFavs(favlist)
     }, [])
+
+    // If no items left on page, theb refetch
+    if (vacFiltered.length === 0 && pages>1 && !isFetching){
+        refetchFavs(favlist)
+    }
 
     return (
         <div className={s.container}>

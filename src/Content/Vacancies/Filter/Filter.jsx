@@ -7,15 +7,22 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 
 
-
-
 function Filter(props) {
     const dispatch = useDispatch()
     
+    // local state
     let [textFrom, setFrom] = useState("")
     let [textTo, setTo] = useState("")
     let [textCat, setCat] = useState("")
 
+    // selectors
+    const keyPairs = useSelector(state => state.vacancies.nameKeyPairs)
+    const cats = useSelector(state => state.vacancies.catalogues)
+    let catsTitlesData = cats.map(item => {
+        return item.title
+    })
+
+    // functions
     function handleChangeFrom(event){
         setFrom(event.target.value)
     }
@@ -26,17 +33,10 @@ function Filter(props) {
         setCat(text)
     }
     
+    // on render
     useEffect(() => {
         dispatch(fetchCatalogues())
     }, [])
- 
-
-    const keyPairs = useSelector(state => state.vacancies.nameKeyPairs)
-    const cats = useSelector(state => state.vacancies.catalogues)
-    let catsTitlesData = cats.map(item => {
-        return item.title
-    })
-   
 
     return (
         <div className={s.container}>

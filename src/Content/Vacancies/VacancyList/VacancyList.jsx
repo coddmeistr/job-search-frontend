@@ -3,7 +3,7 @@ import s from "./VacancyList.module.css"
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { fetchVacancies, setFavList, setFetchingVacs } from "../../../redux/vacanciesReducer";
+import { ITEMS_ON_PAGE, SHOWING_PAGES, fetchVacancies, setFavList, setFetchingVacs } from "../../../redux/vacanciesReducer";
 import Pagination from 'react-bootstrap/Pagination';
 import Preloader from "../../../Preloader/Preloader";
 import { setPage } from "../../../redux/vacanciesReducer";
@@ -13,20 +13,24 @@ import { setPage } from "../../../redux/vacanciesReducer";
 function VacancyList(props) {
     const dispatch = useDispatch()
 
+    // selectors
+    const vacancies = useSelector(state => state.vacancies.vacancies)
+    const favlist = useSelector(state => state.vacancies.favlist)
+    const isFetching = useSelector(state => state.vacancies.isFetching)
+
     // pagination
-    const paginationPages = 5
     const pages = useSelector(state => state.vacancies.totalPages)
     const page = useSelector(state => state.vacancies.page)
     let paginagionJsx = []
-    const offset = Math.floor(paginationPages / 2)
+    const offset = Math.floor(SHOWING_PAGES / 2)
     let left = page - offset
     let right = page + offset
     if (page - offset <= 0) {
         left = 1
-        right = left + Math.min(paginationPages, pages)
+        right = left + Math.min(SHOWING_PAGES, pages)
     } else if (page + offset > pages) {
         right = pages + 1
-        left = right - Math.min(paginationPages, pages)
+        left = right - Math.min(SHOWING_PAGES, pages)
     }
     else {
         right += 1
@@ -38,7 +42,7 @@ function VacancyList(props) {
         )
     }
 
-
+    // functions
     function handleFavClick(id) {
         let favlistStr = localStorage.getItem("favlist")
         let favlist
@@ -59,6 +63,7 @@ function VacancyList(props) {
         localStorage.setItem("favlist", JSON.stringify(favlist))
     }
 
+    // on render
     useEffect(() => {
         const favlistStr = localStorage.getItem("favlist")
         let favlist
@@ -70,13 +75,9 @@ function VacancyList(props) {
 
         dispatch(setPage(1))
         dispatch(setFavList(favlist))
-        dispatch(fetchVacancies({ keyword: props.usedKeyword, from: props.from, to: props.to, cat: props.cat, page: page }))
+        dispatch(fetchVacancies({ keyword: props.usedKeyword, from: props.from, to: props.to, cat: props.cat, page: page, itemsOnPage: ITEMS_ON_PAGE }))
         dispatch(setFetchingVacs(true))
     }, [])
-
-    const vacancies = useSelector(state => state.vacancies.vacancies)
-    const favlist = useSelector(state => state.vacancies.favlist)
-    const isFetching = useSelector(state => state.vacancies.isFetching)
 
     return (
         <div className={s.flexContainer}>

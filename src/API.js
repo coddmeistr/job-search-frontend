@@ -11,10 +11,9 @@ const instance = axios.create({
     }
 })
 
-
 export const userAPI = {
 
-    fetchVacanciesById: (ids, page) => {
+    fetchVacanciesById: (ids, page, itemsOnPage) => {
         const token = JSON.parse(localStorage.getItem("token"))
 
         let idsStr = "ids[]=&"
@@ -22,10 +21,11 @@ export const userAPI = {
             idsStr += `ids[]=${id}&`
             return 0
         })
-        return instance.get(`2.0/vacancies/?${idsStr}page=${page-1}&count=5`, {headers: {...instance.headers, "Authorization": `${token.token_type} ${token.access_token}`}})
+        return instance.get(`2.0/vacancies/?${idsStr}page=${page-1}&count=${itemsOnPage}`,
+        {headers: {...instance.headers, "Authorization": `${token.token_type} ${token.access_token}`}})
     },
 
-    fetchVacancies: (keyword, from, to, catalogue, page) => {
+    fetchVacancies: (keyword, from, to, catalogue, page, itemsOnPage) => {
         const token = JSON.parse(localStorage.getItem("token"))
 
         let from2 = `&payment_from=${from}`
@@ -34,7 +34,7 @@ export const userAPI = {
         if (from === null || from <= 0) from2 = ""
         if (to === null || to <= 0) to2 = ""
         if (catalogue === null) catalogue2 = ""
-        return instance.get(`2.0/vacancies/?published=1&keyword=${keyword}${from2}${to2}${catalogue2}&page=${page-1}&count=10`, {headers: {...instance.headers, "Authorization": `${token.token_type} ${token.access_token}`}})
+        return instance.get(`2.0/vacancies/?published=1&keyword=${keyword}${from2}${to2}${catalogue2}&page=${page-1}&count=${itemsOnPage}`, {headers: {...instance.headers, "Authorization": `${token.token_type} ${token.access_token}`}})
     },
 
     fetchVacancy: (id) => {
