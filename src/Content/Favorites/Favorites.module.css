@@ -23,6 +23,33 @@
     align-self: center;
 }
 
+.emptyState{
+    margin-top: 180px;
+}
+
+.emptyState p{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 29px;
+}
+
+.btn{
+    color: #3B7CD3;
+    background: #DEECFF;
+    border-radius: 8px;
+}
+
+.btn:hover{
+    color: white;
+}
+
+.image img {
+    width: 270px;
+    height: 270px;
+  }
+
 @media screen and (max-width : 1000px) {
     .container {
         margin: 0 5%;

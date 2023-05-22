@@ -11,6 +11,8 @@ import Preloader from './../../Preloader/Preloader';
 import { setPage } from "../../redux/favoritesReducer";
 import { contains } from "../../methods";
 import { ITEMS_ON_PAGE, SHOWING_PAGES } from "../../redux/favoritesReducer";
+import { Button } from "@mantine/core";
+import { LinkContainer } from "react-router-bootstrap";
 
 
 
@@ -103,9 +105,16 @@ function Favorites(props) {
         <div className={s.container}>
             <div style={{ filter: isFetching ? "blur(3px)" : "blur(0px)" }} className={s.favBlock}>
                 {vacFiltered.map((item) => <div className={s.el}><VacancyShortItem favlist={favlist} onFavClick={() => handleFavClick(item.id)} id={item.id} name={item.profession} salary_from={item.payment_from} salary_to={item.payment_to} currency={item.currency} town={item.town.title} worktype={item.type_of_work.title} /></div>)}
-                {vacFiltered.length === 0 && !isFetching ? <div>
-                    <div>У вас нет ничего в избранном.</div>
-                    <div><img alt="emptystateimg" src={process.env.REACT_APP_API_URL + "balloon_empty_state_1.png"}></img></div>
+                {vacFiltered.length === 0 && !isFetching ? <div className={s.emptyState}>
+                    <div className={s.image}><img alt="emptystateimg" src={process.env.REACT_APP_API_URL + "balloon_empty_state_1.png"}></img></div>
+                    <div><p>У вас нет ничего в избранном.</p></div>
+                    <LinkContainer to="../">
+                        <Button
+                            className={s.btn}
+                        >
+                            Поиск вакансий
+                        </Button>
+                    </LinkContainer>
                 </div> : <></>}
                 <div className={s.pagination}>
                     {pages > 1 ? <Pagination>
@@ -118,7 +127,7 @@ function Favorites(props) {
                 </div>
             </div>
             <div className={s.preloader} style={{ display: isFetching ? `block` : `none` }}><Preloader /></div>
-        </div>
+        </div >
     );
 }
 

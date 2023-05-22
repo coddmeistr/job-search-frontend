@@ -5,6 +5,7 @@
 
 .el {
     display: initial;
+    height: auto;
 }
 
 .pagination {
@@ -12,9 +13,9 @@
 }
 
 .vacanciesBlock {
-    display: flex;
-    flex-direction: column;
-
+display:flex;
+flex-direction: column;
+grid-gap: 0px;
 }
 
 .preloader {
@@ -23,6 +24,18 @@
     top: 45%;
     right: 36%;
     position: absolute;
+}
+
+.emptyState{
+    margin-top: 100px;
+}
+
+.emptyState p{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 29px;
 }
 
 @media screen and (max-width : 800px) {

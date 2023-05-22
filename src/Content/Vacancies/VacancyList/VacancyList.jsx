@@ -81,7 +81,10 @@ function VacancyList(props) {
         <div className={s.flexContainer}>
             <div style={{ filter: isFetching ? "blur(3px)" : "blur(0px)" }} className={s.vacanciesBlock}>
                 {vacancies.map((item) => <div className={s.el}><VacancyShortItem favlist={favlist} onFavClick={() => handleFavClick(item.id)} id={item.id} name={item.profession} salary_from={item.payment_from} salary_to={item.payment_to} currency={item.currency} town={item.town.title} worktype={item.type_of_work.title} /></div>)}
-                {vacancies.length === 0 && !isFetching ? <div>По вашему запросу ничего не найдено.</div> : <></>}
+                {vacancies.length === 0 && !isFetching ? <div className={s.emptyState}>
+                    <div className={s.image}><img alt="emptystateimg" src={process.env.REACT_APP_API_URL + "balloon_empty_state_1.png"}></img></div>
+                    <div><p>По вашему запросу ничего не найдено.</p></div>
+                </div> : <></>}
                 <div className={s.pagination}>
                     {pages > 1 ? <Pagination>
                         <Pagination.First onClick={() => props.onPageClick(1)} />

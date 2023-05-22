@@ -1,3 +1,15 @@
 .container {
     display: initial;
 }
+
+.searchBtn{
+    position: relative;
+    right: 60%;
+    height: 70%;
+    border-radius: 8px;
+
+}
+
+.searchInput{
+    border-radius: 8px;
+}
